@@ -8,17 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		3FCB1B2E28FFAF9300F977CF /* Workout_TrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCB1B2D28FFAF9300F977CF /* Workout_TrackerApp.swift */; };
-		3FCB1B3028FFAF9300F977CF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCB1B2F28FFAF9300F977CF /* ContentView.swift */; };
+		3FCB1B3028FFAF9300F977CF /* WorkoutRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCB1B2F28FFAF9300F977CF /* WorkoutRecordView.swift */; };
 		3FCB1B3228FFAF9400F977CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FCB1B3128FFAF9400F977CF /* Assets.xcassets */; };
 		3FCB1B3528FFAF9400F977CF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FCB1B3428FFAF9400F977CF /* Preview Assets.xcassets */; };
+		3FCB1B3F28FFB13700F977CF /* WorkoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCB1B3E28FFB13700F977CF /* WorkoutViewModel.swift */; };
+		3FCB1B4128FFB18200F977CF /* PushupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCB1B4028FFB18200F977CF /* PushupModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3FCB1B2A28FFAF9300F977CF /* Workout Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Workout Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FCB1B2D28FFAF9300F977CF /* Workout_TrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout_TrackerApp.swift; sourceTree = "<group>"; };
-		3FCB1B2F28FFAF9300F977CF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3FCB1B2F28FFAF9300F977CF /* WorkoutRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutRecordView.swift; sourceTree = "<group>"; };
 		3FCB1B3128FFAF9400F977CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3FCB1B3428FFAF9400F977CF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3FCB1B3E28FFB13700F977CF /* WorkoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewModel.swift; sourceTree = "<group>"; };
+		3FCB1B4028FFB18200F977CF /* PushupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushupModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +55,9 @@
 		3FCB1B2C28FFAF9300F977CF /* Workout Tracker */ = {
 			isa = PBXGroup;
 			children = (
-				3FCB1B2D28FFAF9300F977CF /* Workout_TrackerApp.swift */,
-				3FCB1B2F28FFAF9300F977CF /* ContentView.swift */,
+				3FCB1B3C28FFAFD000F977CF /* Model */,
+				3FCB1B3B28FFAFC900F977CF /* View */,
+				3FCB1B3D28FFAFD600F977CF /* ViewModel */,
 				3FCB1B3128FFAF9400F977CF /* Assets.xcassets */,
 				3FCB1B3328FFAF9400F977CF /* Preview Content */,
 			);
@@ -65,6 +70,31 @@
 				3FCB1B3428FFAF9400F977CF /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3FCB1B3B28FFAFC900F977CF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3FCB1B2D28FFAF9300F977CF /* Workout_TrackerApp.swift */,
+				3FCB1B2F28FFAF9300F977CF /* WorkoutRecordView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3FCB1B3C28FFAFD000F977CF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3FCB1B4028FFB18200F977CF /* PushupModel.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		3FCB1B3D28FFAFD600F977CF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3FCB1B3E28FFB13700F977CF /* WorkoutViewModel.swift */,
+			);
+			name = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +167,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FCB1B3028FFAF9300F977CF /* ContentView.swift in Sources */,
+				3FCB1B3028FFAF9300F977CF /* WorkoutRecordView.swift in Sources */,
+				3FCB1B3F28FFB13700F977CF /* WorkoutViewModel.swift in Sources */,
+				3FCB1B4128FFB18200F977CF /* PushupModel.swift in Sources */,
 				3FCB1B2E28FFAF9300F977CF /* Workout_TrackerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
