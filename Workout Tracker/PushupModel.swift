@@ -47,6 +47,13 @@ struct PushupModel {
         save()
     }
 
+    mutating func removePushupTally(at index: Int) {
+        if pushupTallies.indices.contains(index) {
+            pushupTallies.remove(at: index)
+            save()
+        }
+    }
+
     private func save() {
         let encoder = JSONEncoder()
 

@@ -77,9 +77,9 @@
 		3FCB1B3B28FFAFC900F977CF /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3FCB1B2D28FFAF9300F977CF /* Workout_TrackerApp.swift */,
-				3FCB1B2F28FFAF9300F977CF /* WorkoutRecordView.swift */,
+				3FCB1B452908982F00F977CF /* App */,
 				3FCB1B422908313900F977CF /* AddWorkoutView.swift */,
+				3FCB1B2F28FFAF9300F977CF /* WorkoutRecordView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -98,6 +98,14 @@
 				3FCB1B3E28FFB13700F977CF /* WorkoutViewModel.swift */,
 			);
 			name = ViewModel;
+			sourceTree = "<group>";
+		};
+		3FCB1B452908982F00F977CF /* App */ = {
+			isa = PBXGroup;
+			children = (
+				3FCB1B2D28FFAF9300F977CF /* Workout_TrackerApp.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

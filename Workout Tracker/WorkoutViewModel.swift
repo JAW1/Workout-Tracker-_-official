@@ -21,4 +21,8 @@ class WorkoutViewModel: ObservableObject {
     func createNew(_ workoutReport: PushupTally) {
         model.append(workoutReport)
     }
+
+    func removeWorkoutReport(at index: Int) {
+        model.removePushupTally(at: index)
+    }
 }

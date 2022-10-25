@@ -10,7 +10,7 @@ import SwiftUI
 struct WorkoutRecordView: View {
 
     @EnvironmentObject var workoutViewModel: WorkoutViewModel
-
+//    @Environment(\.editMode) var editMode
     @State private var showAddWorkoutModal = false
 
     var body: some View {
@@ -21,11 +21,16 @@ struct WorkoutRecordView: View {
             }
             .navigationTitle("Workout Tracker")
             .toolbar {
-                Button {
-                    showAddWorkoutModal = true
-                } label: {
-                    Image(systemName: "plus")
-                        .imageScale(.large)
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        showAddWorkoutModal = true
+                    } label: {
+                        Image(systemName: "plus")
+                            .imageScale(.large)
+                    }
+                }
+                ToolbarItem {
+                    EditButton()
                 }
             }
             .sheet(isPresented: $showAddWorkoutModal) {
@@ -35,14 +40,28 @@ struct WorkoutRecordView: View {
     }
 
     var individualWorkoutsBody: some View {
-        Section {
-            List {
-                ForEach(workoutViewModel.workoutReports) { workoutReport in
-                    HStack {
-                        Text("\(workoutReport.formattedDate)")
-                        Spacer()
-                        Text("\(workoutReport.count)")
+        Section(header: Text("Individual Workouts")) {
+            let workoutReports = workoutViewModel.workoutReports
+
+            if workoutReports.count > 0 {
+                List {
+                    ForEach(workoutReports) { workoutReport in
+                        HStack {
+                            Text("\(workoutReport.formattedDate)")
+                                .fontWeight(.semibold)
+                            Spacer()
+                            Text("\(workoutReport.count)")
+                        }
                     }
+                    .onDelete { indexSet in
+                        indexSet.forEach { workoutViewModel.removeWorkoutReport(at: $0) }
+                    }
+                }
+            } else {
+                Button {
+                    showAddWorkoutModal = true
+                } label: {
+                    Label("Add your first workout", systemImage: "plus.circle")
                 }
             }
         }
@@ -51,7 +70,7 @@ struct WorkoutRecordView: View {
     var totalBody: some View {
         Section {
             HStack {
-                Text("Grand total push-ups").bold()
+                Text("Grand total push-ups").fontWeight(.semibold)
                 Spacer()
                 Text("\(workoutViewModel.totalCount)")
             }
