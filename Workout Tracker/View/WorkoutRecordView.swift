@@ -22,7 +22,6 @@ struct WorkoutRecordView: View {
             .navigationTitle("Workout Tracker")
             .toolbar {
                 Button {
-//                    workoutViewModel.createNew(PushupTally(count: 50, date: .now))
                     showAddWorkoutModal = true
                 } label: {
                     Image(systemName: "plus")
@@ -40,7 +39,7 @@ struct WorkoutRecordView: View {
             List {
                 ForEach(workoutViewModel.workoutReports) { workoutReport in
                     HStack {
-                        Text("\(workoutReport.date)")
+                        Text("\(workoutReport.formattedDate)")
                         Spacer()
                         Text("\(workoutReport.count)")
                     }

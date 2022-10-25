@@ -13,6 +13,17 @@ struct PushupTally: Identifiable, Codable {
     var date: Date
 }
 
+extension PushupTally {
+    var formattedDate: String {
+        let dateFormatter = DateFormatter()
+
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+
+        return dateFormatter.string(from: date)
+    }
+}
+
 struct PushupModel {
     private struct Key {
         static let tallies = "tallies"

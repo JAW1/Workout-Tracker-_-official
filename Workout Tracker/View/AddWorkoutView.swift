@@ -43,12 +43,22 @@ struct AddWorkoutView: View {
                 }
                 ToolbarItem {
                     Button {
-                        // workoutViewModel.createNew()
+                        saveWorkout()
                         showAddWorkoutViewModal = false
                     } label: {
                         Text("Save")
                     }
                 }
+            }
+        }
+    }
+
+    private func saveWorkout() {
+        let number = numberOfPushups.trimmingCharacters(in: .whitespacesAndNewlines)
+
+        if let pushupCount = Int(number) {
+            if pushupCount > 0 {
+                workoutViewModel.createNew(PushupTally(count: pushupCount, date: date))
             }
         }
     }
