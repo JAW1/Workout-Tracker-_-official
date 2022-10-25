@@ -14,6 +14,8 @@ struct AddWorkoutView: View {
     @State private var numberOfPushups = "50"
     @State private var date = Date()
 
+    @Binding var showAddWorkoutViewModal: Bool
+
     var body: some View {
         NavigationStack {
             Form {
@@ -32,12 +34,21 @@ struct AddWorkoutView: View {
             }
             .navigationBarTitle("Add Workout", displayMode: .inline)
             .toolbar {
-                Button {
-                    // workoutViewModel.createNew()
-                } label: {
-                    Text("Save")
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        showAddWorkoutViewModal = false
+                    } label: {
+                        Text("Cancel")
+                    }
                 }
-
+                ToolbarItem {
+                    Button {
+                        // workoutViewModel.createNew()
+                        showAddWorkoutViewModal = false
+                    } label: {
+                        Text("Save")
+                    }
+                }
             }
         }
     }
@@ -45,6 +56,6 @@ struct AddWorkoutView: View {
 
 struct AddWorkoutView_Previews: PreviewProvider {
     static var previews: some View {
-        AddWorkoutView(workoutViewModel: WorkoutViewModel())
+        AddWorkoutView(workoutViewModel: WorkoutViewModel(), showAddWorkoutViewModal: .constant(true))
     }
 }
