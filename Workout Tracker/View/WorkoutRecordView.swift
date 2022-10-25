@@ -9,7 +9,9 @@ import SwiftUI
 
 struct WorkoutRecordView: View {
 
-    @ObservedObject var workoutViewModel: WorkoutViewModel
+    @EnvironmentObject var workoutViewModel: WorkoutViewModel
+
+    @State private var showAddWorkoutModal = false
 
     var body: some View {
         NavigationStack {
@@ -20,11 +22,15 @@ struct WorkoutRecordView: View {
             .navigationTitle("Workout Tracker")
             .toolbar {
                 Button {
-                    workoutViewModel.createNew(PushupTally(count: 50, date: .now))
+//                    workoutViewModel.createNew(PushupTally(count: 50, date: .now))
+                    showAddWorkoutModal = true
                 } label: {
                     Image(systemName: "plus")
                         .imageScale(.large)
                 }
+            }
+            .sheet(isPresented: $showAddWorkoutModal) {
+                AddWorkoutView(workoutViewModel: workoutViewModel)
             }
         }
     }
@@ -56,6 +62,6 @@ struct WorkoutRecordView: View {
 
 struct WorkoutRecordView_Previews: PreviewProvider {
     static var previews: some View {
-        WorkoutRecordView(workoutViewModel: WorkoutViewModel())
+        WorkoutRecordView().environmentObject(WorkoutViewModel())
     }
 }

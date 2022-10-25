@@ -13,6 +13,7 @@
 		3FCB1B3528FFAF9400F977CF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FCB1B3428FFAF9400F977CF /* Preview Assets.xcassets */; };
 		3FCB1B3F28FFB13700F977CF /* WorkoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCB1B3E28FFB13700F977CF /* WorkoutViewModel.swift */; };
 		3FCB1B4128FFB18200F977CF /* PushupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCB1B4028FFB18200F977CF /* PushupModel.swift */; };
+		3FCB1B432908313900F977CF /* AddWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCB1B422908313900F977CF /* AddWorkoutView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		3FCB1B3428FFAF9400F977CF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3FCB1B3E28FFB13700F977CF /* WorkoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewModel.swift; sourceTree = "<group>"; };
 		3FCB1B4028FFB18200F977CF /* PushupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushupModel.swift; sourceTree = "<group>"; };
+		3FCB1B422908313900F977CF /* AddWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkoutView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 			children = (
 				3FCB1B2D28FFAF9300F977CF /* Workout_TrackerApp.swift */,
 				3FCB1B2F28FFAF9300F977CF /* WorkoutRecordView.swift */,
+				3FCB1B422908313900F977CF /* AddWorkoutView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -168,6 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FCB1B3028FFAF9300F977CF /* WorkoutRecordView.swift in Sources */,
+				3FCB1B432908313900F977CF /* AddWorkoutView.swift in Sources */,
 				3FCB1B3F28FFB13700F977CF /* WorkoutViewModel.swift in Sources */,
 				3FCB1B4128FFB18200F977CF /* PushupModel.swift in Sources */,
 				3FCB1B2E28FFAF9300F977CF /* Workout_TrackerApp.swift in Sources */,
