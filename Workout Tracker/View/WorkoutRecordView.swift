@@ -9,9 +9,15 @@ import SwiftUI
 
 struct WorkoutRecordView: View {
 
+    private struct Constants {
+        static let richardCellPhone = "801-360-1066"
+    }
+
     @EnvironmentObject var workoutViewModel: WorkoutViewModel
-//    @Environment(\.editMode) var editMode
+
+    @State private var editMode: EditMode = .inactive
     @State private var showAddWorkoutModal = false
+    @State private var showReportTotalModal = false
 
     var body: some View {
         NavigationStack {
@@ -36,6 +42,7 @@ struct WorkoutRecordView: View {
             .sheet(isPresented: $showAddWorkoutModal) {
                 AddWorkoutView(workoutViewModel: workoutViewModel, showAddWorkoutViewModal: $showAddWorkoutModal)
             }
+            .environment(\.editMode, $editMode)
         }
     }
 
@@ -50,7 +57,15 @@ struct WorkoutRecordView: View {
                             Text("\(workoutReport.formattedDate)")
                                 .fontWeight(.semibold)
                             Spacer()
-                            Text("\(workoutReport.count)")
+                            EditableText(
+                                text: "\(workoutReport.count)",
+                                isEditing: editMode.isEditing,
+                                textAlignment: .trailing
+                            ) { updatedText in
+                                if let count = Int(updatedText) {
+                                    workoutViewModel.update(count, for: workoutReport)
+                                }
+                            }
                         }
                     }
                     .onDelete { indexSet in
@@ -73,6 +88,27 @@ struct WorkoutRecordView: View {
                 Text("Grand total push-ups").fontWeight(.semibold)
                 Spacer()
                 Text("\(workoutViewModel.totalCount)")
+            }
+            HStack {
+                Text("Pushups that count for Kyle").fontWeight(.semibold)
+                Spacer()
+                Text("\(workoutViewModel.pushupsThatCount)")
+            }
+            Button {
+                showReportTotalModal = true
+            } label: {
+                Label("Report", systemImage: "square.and.arrow.up")
+            }
+        }
+        .sheet(isPresented: $showReportTotalModal) {
+            MessageComposeView(
+                recipients: [Constants.richardCellPhone],
+                body: """
+                      I've completed \(workoutViewModel.pushupsThatCount) \
+                      push-ups for Kyle
+                      """
+            ) { _ in
+                showReportTotalModal = false
             }
         }
     }

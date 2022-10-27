@@ -7,23 +7,6 @@
 
 import Foundation
 
-struct PushupTally: Identifiable, Codable {
-    var id = UUID()
-    var count: Int
-    var date: Date
-}
-
-extension PushupTally {
-    var formattedDate: String {
-        let dateFormatter = DateFormatter()
-
-        dateFormatter.dateStyle = .medium
-        dateFormatter.timeStyle = .none
-
-        return dateFormatter.string(from: date)
-    }
-}
-
 struct PushupModel {
     private struct Key {
         static let tallies = "tallies"
@@ -50,6 +33,13 @@ struct PushupModel {
     mutating func removePushupTally(at index: Int) {
         if pushupTallies.indices.contains(index) {
             pushupTallies.remove(at: index)
+            save()
+        }
+    }
+
+    mutating func update(_ count: Int, for pushupTally: PushupTally) {
+        if let index = pushupTallies.firstIndex(matching: pushupTally) {
+            pushupTallies[index].count = count
             save()
         }
     }
